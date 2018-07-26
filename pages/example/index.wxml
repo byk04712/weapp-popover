@@ -1,4 +1,4 @@
-<view class='container'>
+<scroll-view class='container' scroll-y>
 
   <view class='line1'>
     <view id='tl' class='button' bindtap='onTap'>上左</view>
@@ -18,10 +18,9 @@
     <view id='br' class='button' bindtap='onTap'>下右</view>
   </view>
 
-
   <popover id='popover'>
     <popover-item bindtap='onClickA' hasline>子菜单A内容超出会隐藏</popover-item>
     <popover-item bindtap='onClickB' hasline>子菜单B</popover-item>
     <popover-item bindtap='onClickC'>子菜单C</popover-item>
   </popover>
-</view>
+</scroll-view>

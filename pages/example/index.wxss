@@ -2,13 +2,13 @@
   display: flex;
   flex-direction: column;
   width: 100vw;
-  height: 100vh;
   align-items: center;
 }
 .line1,.line2,.line3 {
   display: flex;
   flex: 1;
   width: 100%;
+  height: 600rpx;
   justify-content: space-between;
 }
 .line1 {

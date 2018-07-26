@@ -36,45 +36,47 @@ Component({
           visible: !self.data.visible
         });
       } else {
-        let { pw, ph, px, py, vertical, align } = self.data;
+        wx.createSelectorQuery().selectViewport().scrollOffset(view => {
+          let { pw, ph, px, py, vertical, align } = self.data;
 
-        let pOverW = (pw - e.width) / 2;
+          let pOverW = (pw - e.width) / 2;
 
-        let offsetL = e.left,
-          offsetR = windowWidth - e.right,
-          offsetB = windowHeight - e.bottom;
+          let offsetL = e.left,
+            offsetR = windowWidth - e.right,
+            offsetB = windowHeight - e.bottom;
 
-        if (offsetL >= pOverW && offsetR >= pOverW) {
-          align = 'center';
-          px = e.left - pOverW;
-        } else if (offsetL > pOverW && offsetR < pOverW) {
-          align = 'left';
-          px = windowWidth - (offsetR + pw);
-          // 如果向右贴边了，设置一点距离
-          if ((windowWidth - pw) == px) px -= 5;
-        } else if (offsetL < pOverW && offsetR > pOverW) {
-          align = 'right';
-          px = e.left;
-          // 如果向左贴边了，设置一点距离
-          if (px == 0) px += 5;
-        }
+          if (offsetL >= pOverW && offsetR >= pOverW) {
+            align = 'center';
+            px = e.left - pOverW;
+          } else if (offsetL > pOverW && offsetR < pOverW) {
+            align = 'left';
+            px = windowWidth - (offsetR + pw);
+            // 如果向右贴边了，设置一点距离
+            if ((windowWidth - pw) == px) px -= 5;
+          } else if (offsetL < pOverW && offsetR > pOverW) {
+            align = 'right';
+            px = e.left;
+            // 如果向左贴边了，设置一点距离
+            if (px == 0) px += 5;
+          }
 
-        if (offsetB >= (ph + trangleHeight)) {
-          vertical = 'bottom';
-          py = e.bottom + trangleHeight;
-        } else {
-          vertical = 'top';
-          py = e.top - ph - trangleHeight;
-        }
+          if (offsetB >= (ph + trangleHeight)) {
+            vertical = 'bottom';
+            py = view.scrollTop + e.bottom + trangleHeight;
+          } else {
+            vertical = 'top';
+            py = view.scrollTop + e.top - ph - trangleHeight;
+          }
 
-        self.setData({
-          visible: true,
-          px: px,
-          py: py,
-          ph: self.getItemsHeight(),
-          vertical: vertical,
-          align: align
-        });
+          self.setData({
+            visible: true,
+            px: px,
+            py: py,
+            ph: self.getItemsHeight(),
+            vertical: vertical,
+            align: align
+          });
+        }).exec();
       }
       // 记录上一次点击的元素
       self.last = e.id;
