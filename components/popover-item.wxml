@@ -1,0 +1,3 @@
+<view class='popover-item {{hasline ? "underline" : ""}}' hover-class='popover-item-hover' catchtap='onClick' style='height:{{height}}px;line-height:{{height}}px;'>
+  <slot/>
+</view>

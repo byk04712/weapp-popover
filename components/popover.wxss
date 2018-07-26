@@ -1,0 +1,40 @@
+.popover-view {
+  position: absolute;
+  background-color: white;
+  box-shadow: 0 0 2px 2px #ddd;
+  border-radius: 6rpx;
+}
+/* 实现三角形 */
+.popover-view::before {
+  position: absolute;
+  display: inline-block;
+  width: 0;
+  height: 0px;
+  content: '';
+  border-style: solid;
+  border-width: 6px;
+  border-color: #fff #fff transparent transparent;
+  box-shadow: 2px -2px 2px #ddd;
+}
+/* 上 */
+.popover-view.top::before {
+  bottom: -6px;
+  transform: rotate(135deg);
+}
+/* 下 */
+.popover-view.bottom::before {
+  top: -6px;
+  transform: rotate(-45deg);
+}
+/* 左 */
+.popover-view.left::before {
+  right: 20px;
+}
+/* 中 */
+.popover-view.center::before {
+  left: 47px;
+}
+/* 右 */
+.popover-view.right::before {
+  left: 20px;
+}

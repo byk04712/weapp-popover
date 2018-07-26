@@ -1,0 +1,27 @@
+<view class='container'>
+
+  <view class='line1'>
+    <view id='tl' class='button' bindtap='onTap'>上左</view>
+    <view id='tc' class='button' bindtap='onTap'>上中</view>
+    <view id='tr' class='button' bindtap='onTap'>上右</view>
+  </view>
+
+  <view class='line2'>
+    <view id='cl' class='button' bindtap='onTap'>中左</view>
+    <view id='cc' class='button' bindtap='onTap'>中中</view>
+    <view id='cr' class='button' bindtap='onTap'>中右</view>
+  </view>
+
+  <view class='line3'>
+    <view id='bl' class='button' bindtap='onTap'>下左</view>
+    <view id='bc' class='button' bindtap='onTap'>下中</view>
+    <view id='br' class='button' bindtap='onTap'>下右</view>
+  </view>
+
+
+  <popover id='popover'>
+    <popover-item bindtap='onClickA' hasline>子菜单A内容超出会隐藏</popover-item>
+    <popover-item bindtap='onClickB' hasline>子菜单B</popover-item>
+    <popover-item bindtap='onClickC'>子菜单C</popover-item>
+  </popover>
+</view>
